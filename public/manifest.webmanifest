@@ -1,9 +1,10 @@
 {
-  "name": "Zone de Combat 3D",
-  "short_name": "Combat 3D",
+  "name": "Tir.gun",
+  "short_name": "Tir.gun",
   "start_url": "/",
   "display": "standalone",
-  "orientation": "landscape",
-  "background_color": "#071018",
-  "theme_color": "#0a1118"
+  "background_color": "#07111e",
+  "theme_color": "#07111e",
+  "description": "Jeu de tir 3D solo sur iPhone",
+  "icons": []
 }
