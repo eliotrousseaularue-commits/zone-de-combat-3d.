@@ -1,6 +1,6 @@
 {
-  "name": "zone-de-combat-3d",
-  "version": "2.0.1",
+  "name": "tir-gun",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node server.js"
