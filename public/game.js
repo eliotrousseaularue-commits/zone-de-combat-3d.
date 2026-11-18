@@ -103,4 +103,5 @@ canvasArea.addEventListener("pointermove",e=>{if(lookPointer!==e.pointerId||!run
 document.addEventListener("keydown",e=>{if(e.key==="w"||e.key==="ArrowUp")held.up=true;if(e.key==="s"||e.key==="ArrowDown")held.down=true;if(e.key==="a"||e.key==="ArrowLeft")held.left=true;if(e.key==="d"||e.key==="ArrowRight")held.right=true;if(e.code==="Space")shoot()});
 document.addEventListener("keyup",e=>{if(e.key.toLowerCase()==="w"||e.key==="ArrowUp")held.up=false;if(e.key.toLowerCase()==="s"||e.key==="ArrowDown")held.down=false;if(e.key.toLowerCase()==="a"||e.key==="ArrowLeft")held.left=false;if(e.key.toLowerCase()==="d"||e.key==="ArrowRight")held.right=false});
 init();
+window.TirGunReady=true;
 })();
