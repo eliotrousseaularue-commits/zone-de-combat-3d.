@@ -20,7 +20,7 @@
   const s=document.createElement("script");s.src=url;
   s.onload=()=>{
    if(!window.THREE){failed();return}
-   const g=document.createElement("script");g.src="/game.js?v=5";
+   const g=document.createElement("script");g.src="/game.js?v=6";
    g.onload=()=>{if(!window.TirGunReady)status.style.display="block"};
    g.onerror=()=>{status.querySelector("p").textContent="Le jeu n’a pas pu démarrer. Recharge la page.";status.style.display="block"};
    document.body.appendChild(g);
