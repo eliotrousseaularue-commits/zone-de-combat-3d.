@@ -9,4 +9,19 @@
 <button id="start" class="primary">LANCER LA MISSION <span>▶</span></button><p class="foot">MODE SOLO · ENNEMIS IA · SURVIE</p></section>
 <div id="hud" class="hidden"><div class="top"><b>TIR.GUN</b><span id="mapName">VILLE FANTÔME</span><span id="score">ÉLIMINATIONS 0</span><button id="pause">Ⅱ</button></div><div class="cross">+</div><div class="bottom"><div class="stats"><b id="health">♥ 100</b><b id="ammo">30 / ∞</b></div><div class="pad"><button id="up">▲</button><div><button id="left">◀</button><button id="down">▼</button><button id="right">▶</button></div></div><button id="fire">TIR</button></div></div>
 <div id="pauseBox" class="hidden"><h2>MISSION EN PAUSE</h2><button id="resume" class="primary">REPRENDRE</button><button id="home">MENU PRINCIPAL</button></div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script><script src="/game.js"></script><script>if("serviceWorker"in navigator)navigator.serviceWorker.register("/sw.js");</script></body></html>
+<script>
+(function(){
+ const status=document.createElement("div");
+ status.id="loadError";
+ status.style.cssText="display:none;position:fixed;z-index:9999;inset:0;background:#07111e;color:white;padding:28px;font:16px Arial;text-align:center";
+ status.innerHTML="<h2>Tir.gun</h2><p>Le moteur 3D n’a pas pu se charger.</p><button onclick='location.reload()' style='padding:14px 22px;border:0;border-radius:8px;background:#ff653b;color:white;font-weight:bold'>RÉESSAYER</button>";
+ document.body.appendChild(status);
+ function load(url,failed){
+  const s=document.createElement("script");s.src=url;s.onload=()=>{if(window.THREE){const g=document.createElement("script");g.src="/game.js?v=4";document.body.appendChild(g)}else failed()};
+  s.onerror=failed;document.body.appendChild(s);
+ }
+ function fallback(){load("https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js",()=>status.style.display="block")}
+ load("https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js",fallback);
+ if("serviceWorker"in navigator)navigator.serviceWorker.register("/sw.js");
+})();
+</script></body></html>
