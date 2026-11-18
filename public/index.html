@@ -31,11 +31,7 @@
   if(!urls.length){status.style.display="block";return}
   load(urls[0],()=>trySources(urls.slice(1)));
  }
- trySources([
-  "https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js",
-  "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js",
-  "https://unpkg.com/three@0.160.0/build/three.min.js"
- ]);
+ trySources(["/vendor/three/three.min.js"]);
  document.querySelectorAll(".map").forEach(button=>{
   const choose=()=>{
    document.querySelectorAll(".map").forEach(item=>item.classList.remove("selected"));
