@@ -20,8 +20,21 @@
   const s=document.createElement("script");s.src=url;s.onload=()=>{if(window.THREE){const g=document.createElement("script");g.src="/game.js?v=4";document.body.appendChild(g)}else failed()};
   s.onerror=failed;document.body.appendChild(s);
  }
- function fallback(){load("https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js",()=>status.style.display="block")}
- load("https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js",fallback);
+ function trySources(urls){
+  if(!urls.length){status.style.display="block";return}
+  load(urls[0],()=>trySources(urls.slice(1)));
+ }
+ trySources([
+  "https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js",
+  "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js",
+  "https://unpkg.com/three@0.160.0/build/three.min.js"
+ ]);
+ document.querySelectorAll(".map").forEach(button=>{
+  button.addEventListener("pointerup",()=>{
+   document.querySelectorAll(".map").forEach(item=>item.classList.remove("selected"));
+   button.classList.add("selected");
+  });
+ });
  if("serviceWorker"in navigator)navigator.serviceWorker.register("/sw.js");
 })();
 </script></body></html>
